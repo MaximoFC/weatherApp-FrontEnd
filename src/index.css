@@ -39,13 +39,24 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    border-style: solid;
+    border-color: rgb(200, 200, 200);
+    border-width: 0px 0px 2px 0px;
 }
 
 .results {
-    cursor: default;
+    cursor: pointer;
     padding-left: 10px;
     display: flex;
     align-items: center;
+    border-style: solid;
+    border-color: rgb(200, 200, 200);
+    border-width: 0px 2px 0px 2px;
+    height: 35px;
+}
+
+.results:hover {
+    background-color: rgb(200, 200, 200);
 }
 
 .lupa {
