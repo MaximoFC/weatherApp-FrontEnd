@@ -74,6 +74,12 @@ export default function App(){
     setSearches(data);
   }
 
+  const autocomplete = (search) => {
+    event.preventDefault();
+    setCity(search);
+    console.log(search);
+}
+
   return(
     <Container
       maxWidth="xs"
@@ -153,7 +159,9 @@ export default function App(){
         </div>
         <Box className="resultsContainer">
           {searches.map(({search}, index) => {
-            return <p className="results" key={index}><img src="../public/search.png" alt="icono buscar" className="lupa"/>{search}</p>
+            return <button className="results" key={index} onClick={() => autocomplete(search)}>
+                <img src="../public/search.png" alt="icono buscar" className="lupa"/>{search}
+            </button>
           })}
         </Box>
       </Box>
