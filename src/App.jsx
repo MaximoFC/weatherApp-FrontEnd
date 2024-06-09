@@ -1,6 +1,6 @@
 import { LoadingButton } from "@mui/lab";
 import { Box, Container, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import '../public/settings.png';
 import '../public/search.png';
@@ -28,6 +28,8 @@ export default function App(){
   const openTab = () => {
     setIsOpen(!isOpen);
   };
+
+  const inputRef = useRef(null);
 
   const onSubmit = async(e) =>{
     e.preventDefault();
@@ -77,7 +79,7 @@ export default function App(){
   const autocomplete = (search) => {
     event.preventDefault();
     setCity(search);
-    console.log(search);
+    inputRef.current.focus();
 }
 
   return(
@@ -142,6 +144,7 @@ export default function App(){
           variant="outlined"
           size="small"
           className="input"
+          inputRef={inputRef}
           required
           value={city}
           onChange={(e) => setCity(e.target.value)}
@@ -150,6 +153,7 @@ export default function App(){
         />
         <LoadingButton
             onClick={onSubmit}
+            type="submit"
             variant="contained" 
             loading={loading} 
             loadingIndicator="Cargando..."
